@@ -56,8 +56,15 @@ public class WebConfig implements WebMvcConfigurer {
                 .addResolver(new PathResourceResolver() {
                     @Override
                     protected Resource getResource(String resourcePath, Resource location) throws IOException {
+                        String normalized = resourcePath;
+                        if (normalized.endsWith("/index.html")) {
+                            normalized = normalized.substring(0, normalized.length() - "/index.html".length());
+                        } else if (normalized.endsWith("/")) {
+                            normalized = normalized.substring(0, normalized.length() - 1);
+                        }
+
                         Resource asIndex = location.createRelative(
-                                resourcePath.endsWith("/") ? resourcePath + "index.html" : resourcePath + "/index.html");
+                                normalized.isEmpty() ? "index.html" : normalized + "/index.html");
                         if (asIndex.exists() && asIndex.isReadable()) {
                             return asIndex;
                         }
@@ -65,6 +72,16 @@ public class WebConfig implements WebMvcConfigurer {
                         if (requested.exists() && requested.isReadable()) {
                             return requested;
                         }
+
+                        int slash = normalized.lastIndexOf('/');
+                        if (slash > 0) {
+                            Resource dynamic = location.createRelative(
+                                    normalized.substring(0, slash) + "/_/index.html");
+                            if (dynamic.exists() && dynamic.isReadable()) {
+                                return dynamic;
+                            }
+                        }
+
                         Resource root = location.createRelative("index.html");
                         return root.exists() && root.isReadable() ? root : null;
                     }

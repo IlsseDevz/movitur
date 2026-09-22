@@ -2,15 +2,15 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { Badge } from '@/components';
 import { FeedbackSection } from '@/components/FeedbackSection';
+import { routeParamId } from '@/lib/static-export';
 import { estabelecimentoService } from '@/services';
 import type { Estabelecimento } from '@/types';
 
 export function EstabelecimentoDetalhePage() {
-  const params = useParams();
-  const id = params.id as string | undefined;
+  const id = routeParamId(usePathname());
   const [estabelecimento, setEstabelecimento] = useState<Estabelecimento | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');

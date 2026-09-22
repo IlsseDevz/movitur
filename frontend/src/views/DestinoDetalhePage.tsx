@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useParams, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Badge, Button, Card } from '@/components';
 import { DestinoMap, destinosComCoordenadas } from '@/components/DestinoMapLazy';
 import { EstabelecimentoCard } from '@/components/EstabelecimentoCard';
@@ -10,12 +10,12 @@ import { FavoritoButton } from '@/components/FavoritoButton';
 import { FeedbackSection } from '@/components/FeedbackSection';
 import { useAuth } from '@/context/AuthContext';
 import { setNavState } from '@/lib/nav-state';
+import { routeParamId } from '@/lib/static-export';
 import { destinoService, guiaService, estabelecimentoService } from '@/services';
 import { buscarRotaRodoviaria, MAPUTO_ORIGEM, type RotaResultado } from '@/services/routeService';
 import type { Destino, Estabelecimento, GuiaTuristico } from '@/types';
 export function DestinoDetalhePage() {
-  const params = useParams();
-  const id = params.id as string | undefined;
+  const id = routeParamId(usePathname());
   const router = useRouter();
   const { isAuthenticated } = useAuth();
   const [destino, setDestino] = useState<Destino | null>(null);
