@@ -1,0 +1,10 @@
+.git
+.cursor
+frontend/node_modules
+frontend/.next
+frontend/out
+target
+uploads
+*.env
+movitur.env
+**/.DS_Store

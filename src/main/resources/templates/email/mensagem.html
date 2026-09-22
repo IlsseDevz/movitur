@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt">
+<head>
+  <meta charset="UTF-8"/>
+  <title th:text="${assunto}">MoviTur</title>
+</head>
+<body style="margin:0;padding:24px;background:#f1f5f9;font-family:Arial,Helvetica,sans-serif;color:#1e293b;">
+  <div style="max-width:560px;margin:0 auto;background:#ffffff;border-radius:12px;padding:32px;border:1px solid #e2e8f0;">
+    <div style="margin-bottom:24px;">
+      <span style="font-size:24px;font-weight:bold;color:#0d9488;">&#9992; MoviTur</span>
+      <p style="margin:4px 0 0;color:#64748b;font-size:13px;">Turismo em Mocambique</p>
+    </div>
+
+    <h2 style="margin:0 0 16px;font-size:20px;color:#0f766e;" th:text="${titulo}">Titulo</h2>
+    <p style="margin:0 0 16px;line-height:1.6;" th:text="${saudacao}">Ola</p>
+
+    <p th:each="paragrafo : ${paragrafos}"
+       style="margin:0 0 12px;line-height:1.6;"
+       th:text="${paragrafo}">Paragrafo</p>
+
+    <div th:if="${destaque != null and !#strings.isEmpty(destaque)}"
+         style="background:#f0fdfa;border:1px solid #99f6e4;border-radius:8px;padding:16px;margin:20px 0;white-space:pre-line;line-height:1.6;"
+         th:text="${destaque}">Destaque</div>
+
+    <div th:if="${botaoUrl != null and !#strings.isEmpty(botaoUrl)}" style="margin:24px 0;">
+      <a th:href="${botaoUrl}"
+         th:text="${botaoTexto}"
+         style="display:inline-block;background:#0d9488;color:#ffffff;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">
+        Acao
+      </a>
+    </div>
+
+    <p style="margin:32px 0 0;color:#64748b;font-size:13px;border-top:1px solid #e2e8f0;padding-top:16px;">
+      Equipa MoviTur<br/>
+      <span th:if="${appUrl != null}" th:text="${appUrl}" style="color:#94a3b8;">http://localhost:8080</span>
+    </p>
+  </div>
+</body>
+</html>

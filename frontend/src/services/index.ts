@@ -1,0 +1,15 @@
+export { default as api } from './api';
+export { authService } from './authService';
+export { adminService } from './adminService';
+export { categoriaService } from './categoriaService';
+export { destinoService } from './destinoService';
+export { guiaService } from './guiaService';
+export { simuladorService } from './simuladorService';
+export { reservaService, reservaAdminService } from './reservaService';
+export { avaliacaoService } from './avaliacaoService';
+export { poupancaService, pagamentoService, pagamentoAdminService } from './poupancaService';
+export { favoritoService } from './favoritoService';
+export { notificacaoService } from './notificacaoService';
+export { relatorioAdminService } from './relatorioAdminService';
+export { estabelecimentoService } from './estabelecimentoService';
+export { feedbackService } from './feedbackService';
