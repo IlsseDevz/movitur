@@ -34,10 +34,12 @@ export function AdminLayout({ children }: { children: ReactNode }) {
 
       <aside className={`fixed lg:static inset-y-0 left-0 z-50 w-64 bg-slate-800 border-r border-slate-700 flex flex-col transform transition-transform ${sidebarAberta ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}`}>
         <div className="p-5 border-b border-slate-700">
-          <Link href="/admin" className="flex items-center gap-2" onClick={() => setSidebarAberta(false)}>
-            <span className="text-2xl">&#9881;</span>
+          <Link href="/admin" className="flex items-center gap-3" onClick={() => setSidebarAberta(false)}>
+            <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center text-white font-bold shadow-md">
+              M
+            </div>
             <div>
-              <p className="font-bold text-white">MoviTur</p>
+              <p className="font-bold text-white tracking-wide">MoviTur</p>
               <p className="text-xs text-slate-400">Back Office</p>
             </div>
           </Link>

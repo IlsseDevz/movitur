@@ -95,11 +95,7 @@ export function Header() {
                       Registar
                     </Button>
                   </Link>
-                  <Link href="/admin/login" onClick={() => setMenuAberto(false)} className="hidden md:block">
-                    <span className="px-3 py-2 text-xs text-white/70 hover:text-white transition-colors">
-                      Admin
-                    </span>
-                  </Link>
+                  
                 </>
               )}
             </div>

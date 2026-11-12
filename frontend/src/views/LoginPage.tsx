@@ -108,10 +108,7 @@ export function LoginPage() {
           <button type="button" onClick={irRegisto} className="text-primary font-medium hover:underline">
             Criar conta
           </button>
-          <span className="mx-2">|</span>
-          <Link href="/admin/login" className="text-gray-400 hover:underline">
-            Acesso admin
-          </Link>
+          
         </p>
       </Card>
     </div>

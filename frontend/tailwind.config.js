@@ -5,9 +5,9 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#0d6e6e',
-          dark: '#094d4d',
-          light: '#14a3a3',
+          DEFAULT: '#2563eb', // Azul vibrante principal
+          dark: '#1d4ed8',    // Tom mais escuro para hover/fundos
+          light: '#3b82f6',   // Tom mais claro para destaques
         },
         accent: {
           DEFAULT: '#f4a261',

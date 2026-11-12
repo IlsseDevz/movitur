@@ -104,28 +104,28 @@ public class DataSeeder implements CommandLineRunner {
 
         Destino tofo = criarDestino("Praia do Tofo", "Praia famosa pelo mergulho com tubaroes-baleia e mantas.",
                 "Inhambane", "Tofo", new BigDecimal("4500.00"),
-                "https://images.unsplash.com/photo-1544551763-46a013bb70d5", praia, -23.859, 35.548);
+                "/images/Praia_de_tofo.jpg", praia, -23.859, 35.548);
         Destino bazaruto = criarDestino("Arquipelago de Bazaruto", "Ilhas de dunas douradas e recifes de coral protegidos.",
                 "Inhambane", "Vilankulo", new BigDecimal("12000.00"),
-                "https://images.unsplash.com/photo-1506929562872-bb421503ef21", luxo, -21.633, 35.467);
+                "/images/bazaruto.webp", luxo, -21.633, 35.467);
         Destino ilhaMoc = criarDestino("Ilha de Mocambique", "Patrimonio Mundial da UNESCO, com arquitetura colonial unica.",
                 "Nampula", "Ilha de Mocambique", new BigDecimal("3800.00"),
-                "https://images.unsplash.com/photo-1571406252241-db0280bd36cd", cultura, -15.039, 40.734);
+                "/images/ilha_de_mocambique.jpg", cultura, -15.039, 40.734);
         Destino gorongosa = criarDestino("Parque Nacional da Gorongosa", "Um dos parques mais biodiversos de Africa, ideal para safaris.",
                 "Sofala", "Gorongosa", new BigDecimal("7500.00"),
-                "https://images.unsplash.com/photo-1516426122078-c23e76319801", aventura, -18.675, 34.492);
+                "/images/parque_de_gorongosa.webp", aventura, -18.675, 34.492);
         Destino pontaOuro = criarDestino("Ponta do Ouro", "Praia no extremo sul, otima para mergulho com golfinhos.",
                 "Maputo", "Ponta do Ouro", new BigDecimal("5000.00"),
-                "https://images.unsplash.com/photo-1507525428034-b723cf961d3e", praia, -26.847, 32.892);
+                "/images/ponta_de_ouro.webp", praia, -26.847, 32.892);
         Destino quirimbas = criarDestino("Arquipelago das Quirimbas", "Ilhas remotas de beleza intocada e lodges de luxo.",
                 "Cabo Delgado", "Ibo", new BigDecimal("11000.00"),
-                "https://images.unsplash.com/photo-1439066615861-d1af74d74000", luxo, -12.763, 40.602);
+                "/images/ilha_Quirimbas.jpg", luxo, -12.763, 40.602);
         Destino maputo = criarDestino("Cidade de Maputo", "Capital vibrante com mercados, museus e vida noturna.",
                 "Maputo", "Maputo", new BigDecimal("3000.00"),
-                "https://images.unsplash.com/photo-1449824913935-59a10b8d2000", cultura, -25.969, 32.573);
+                "/images/Maputo_cidade.jpg", cultura, -25.969, 32.573);
         Destino bilene = criarDestino("Praia do Bilene", "Lagoa de aguas calmas, perfeita para familias.",
                 "Gaza", "Bilene", new BigDecimal("3500.00"),
-                "https://images.unsplash.com/photo-1519046904884-53103b34b206", familia, -25.183, 33.067);
+                "/images/Praia_de_bilene.jpg", familia, -25.183, 33.067);
 
         destinoRepository.saveAll(List.of(tofo, bazaruto, ilhaMoc, gorongosa, pontaOuro, quirimbas, maputo, bilene));
 
@@ -217,26 +217,27 @@ public class DataSeeder implements CommandLineRunner {
         Destino maputo = destinos.stream().filter(d -> d.getNome().contains("Maputo")).findFirst().orElse(destinos.get(0));
         Destino tofo = destinos.stream().filter(d -> d.getNome().contains("Tofo")).findFirst().orElse(destinos.get(0));
         Destino bazaruto = destinos.stream().filter(d -> d.getNome().contains("Bazaruto")).findFirst().orElse(destinos.get(0));
+        Destino gorongosa = destinos.stream().filter(d -> d.getNome().contains("Gorongosa")).findFirst().orElse(destinos.get(0));
 
         estabelecimentoRepository.saveAll(List.of(
-                criarEstabelecimento("Hotel Polana Serena", "Hotel historico no coracao de Maputo.", TipoEstabelecimento.HOTEL,
-                        maputo, new BigDecimal("8500.00"), 4.7, PlanoAnuncio.OURO, LocalDate.now().plusMonths(6),
-                        "https://images.unsplash.com/photo-1566073771259-6a8506099945"),
-                criarEstabelecimento("Restaurante Zambezi", "Cozinha mocambicana contemporanea.", TipoEstabelecimento.RESTAURANTE,
+                criarEstabelecimento("Montebelo Gorongosa", "Hotel historico no coracao de Gorongosa.", TipoEstabelecimento.HOTEL,
+                        gorongosa, new BigDecimal("8500.00"), 4.7, PlanoAnuncio.OURO, LocalDate.now().plusMonths(6),
+                        "/images/montebelogorongosaexterior_01.jpg"),
+                criarEstabelecimento("Restaurante Costa do Sol", "Cozinha mocambicana contemporanea.", TipoEstabelecimento.RESTAURANTE,
                         maputo, new BigDecimal("1200.00"), 4.5, PlanoAnuncio.PRATA, LocalDate.now().plusMonths(3),
-                        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4"),
-                criarEstabelecimento("Pestana Inhambane", "Resort a beira-mar em Tofo.", TipoEstabelecimento.HOTEL,
-                        tofo, new BigDecimal("6500.00"), 4.6, PlanoAnuncio.OURO, LocalDate.now().plusMonths(4),
-                        "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4"),
-                criarEstabelecimento("Restaurante Bela Vista Tofo", "Marisco fresco com vista para o oceano.", TipoEstabelecimento.RESTAURANTE,
+                        "/images/Restaurante_costa_sol.jpg"),
+                criarEstabelecimento("Radisson hotel", "Luxo exclusivo na capital.", TipoEstabelecimento.HOTEL,
+                        maputo, new BigDecimal("15000.00"), 4.9, PlanoAnuncio.OURO, LocalDate.now().plusMonths(5),
+                        "/images/Radisson_hotel.jpg"),
+                criarEstabelecimento("Restaurante Hippo", "Marisco fresco com vista para o rio incomate.", TipoEstabelecimento.RESTAURANTE,
                         tofo, new BigDecimal("900.00"), 4.3, PlanoAnuncio.BRONZE, LocalDate.now().plusMonths(2),
-                        "https://images.unsplash.com/photo-1559339352-11d035aa65de"),
-                criarEstabelecimento("Anantara Bazaruto Lodge", "Luxo exclusivo no arquipelago.", TipoEstabelecimento.HOTEL,
-                        bazaruto, new BigDecimal("15000.00"), 4.9, PlanoAnuncio.OURO, LocalDate.now().plusMonths(5),
-                        "https://images.unsplash.com/photo-1571896349842-33c89424de2d"),
-                criarEstabelecimento("Cafe Vilankulo", "Pequeno-almoco e petiscos locais.", TipoEstabelecimento.RESTAURANTE,
-                        bazaruto, new BigDecimal("600.00"), 4.0, PlanoAnuncio.GRATUITO, null,
-                        "https://images.unsplash.com/photo-1554118811-1e0d582782f8")
+                        "/images/Restaurante_hippo.webp"),
+                criarEstabelecimento("Hotel Cardoso", "Hotel classico com vista panoramica sobre a baia de Maputo.", TipoEstabelecimento.HOTEL,
+                        maputo, new BigDecimal("6500.00"), 4.6, PlanoAnuncio.OURO, LocalDate.now().plusMonths(4),
+                        "/images/Hotel_cardoso.jpg"),
+                criarEstabelecimento("tofo tofo", "Pequeno-almoco e petiscos locais.", TipoEstabelecimento.RESTAURANTE,
+                        tofo, new BigDecimal("600.00"), 4.0, PlanoAnuncio.GRATUITO, null,
+                        "/images/Tofo_tofo.webp")
         ));
         log.info("Seeder de estabelecimentos: {} registos criados.", estabelecimentoRepository.count());
     }
@@ -267,8 +268,8 @@ public class DataSeeder implements CommandLineRunner {
         return e;
     }
 
-    private GuiaTuristico criarGuia(String nome, String email, String telefone, String biografia,
-                                    int anosExperiencia, double avaliacao, Set<Destino> destinos) {
+    GuiaTuristico criarGuia(String nome, String email, String telefone, String biografia,
+                            int anosExperiencia, double avaliacao, Set<Destino> destinos) {
         GuiaTuristico g = new GuiaTuristico();
         g.setNome(nome);
         g.setEmail(email);
