@@ -19,7 +19,7 @@ if [ -n "$DATABASE_URL" ]; then
   fi
   export MOVITUR_DB_URL="jdbc:postgresql://${host}:${port}/${db}?sslmode=require"
   export MOVITUR_DB_USER="$user"
-  export MOVITUR_DB_PASS="$pass"
+  export MOVITUR_DB_PASSWORD="$pass"
   export MOVITUR_DB_DRIVER="org.postgresql.Driver"
 fi
 
